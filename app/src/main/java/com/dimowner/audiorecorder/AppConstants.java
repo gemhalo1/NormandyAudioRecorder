@@ -138,6 +138,7 @@ public class AppConstants {
 //	public final static int RECORD_AUDIO_CHANNELS_COUNT = 2;
 	public final static int RECORD_AUDIO_MONO = 1;
 	public final static int RECORD_AUDIO_STEREO = 2;
+	public final static int RECORD_AUDIO_SIX = 6;
 	public final static int RECORD_MAX_DURATION = 14400000; // 240 min 4 hours
 
 	public static final String DEFAULT_THEME_COLOR = THEME_BLUE_GREY;

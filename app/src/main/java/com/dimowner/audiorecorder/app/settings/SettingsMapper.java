@@ -67,6 +67,7 @@ public class SettingsMapper {
 	public final static String BITRATE_256000 = "256000";
 	public final static String BITRATE_288000 = "288000";
 
+	public final static String CHANNEL_COUNT_SIX = "six";
 	public final static String CHANNEL_COUNT_STEREO = "stereo";
 	public final static String CHANNEL_COUNT_MONO = "mono";
 
@@ -109,6 +110,7 @@ public class SettingsMapper {
 		};
 		recChannels = resources.getStringArray(R.array.channels);
 		recChannelsKeys = new String[] {
+				SettingsMapper.CHANNEL_COUNT_SIX,
 				SettingsMapper.CHANNEL_COUNT_STEREO,
 				SettingsMapper.CHANNEL_COUNT_MONO
 		};
@@ -282,6 +284,8 @@ public class SettingsMapper {
 				return AppConstants.RECORD_AUDIO_MONO;
 			case CHANNEL_COUNT_STEREO:
 				return AppConstants.RECORD_AUDIO_STEREO;
+			case CHANNEL_COUNT_SIX:
+				return AppConstants.RECORD_AUDIO_SIX;
 			default:
 				return AppConstants.DEFAULT_CHANNEL_COUNT;
 		}
@@ -289,6 +293,8 @@ public class SettingsMapper {
 
 	public static String channelCountToKey(int count) {
 		switch (count) {
+			case AppConstants.RECORD_AUDIO_SIX:
+				return CHANNEL_COUNT_SIX;
 			case AppConstants.RECORD_AUDIO_MONO:
 				return CHANNEL_COUNT_MONO;
 			case AppConstants.RECORD_AUDIO_STEREO:

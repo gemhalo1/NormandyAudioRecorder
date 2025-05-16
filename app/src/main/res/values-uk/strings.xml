@@ -298,9 +298,11 @@
 	</string-array>
 
 	<string-array name="channels">
+		<item>Six</item>
 		<item>Стерео</item>
 		<item>Моно</item>
 	</string-array>
 
 	<string name="app_widget_description">Почати запис віджет</string>
+	<string name="six_channel">Six</string>
 </resources>

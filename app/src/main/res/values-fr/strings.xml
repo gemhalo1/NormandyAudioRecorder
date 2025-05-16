@@ -275,9 +275,11 @@
 	</string-array>
 
 	<string-array name="channels">
+		<item>Six</item>
 		<item>Stéréo</item>
 		<item>Mono</item>
 	</string-array>
 
 	<string name="app_widget_description">Widget début d\'enregistrement</string>
+	<string name="six_channel">Six</string>
 </resources>

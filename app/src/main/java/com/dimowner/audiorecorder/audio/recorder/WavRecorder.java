@@ -21,6 +21,7 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import com.dimowner.audiorecorder.AppConstants;
+import com.dimowner.audiorecorder.app.settings.SettingsMapper;
 import com.dimowner.audiorecorder.exception.InvalidOutputFile;
 import com.dimowner.audiorecorder.exception.RecorderInitException;
 import com.dimowner.audiorecorder.exception.RecordingException;
@@ -85,12 +86,15 @@ public class WavRecorder implements RecorderContract.Recorder {
 	@Override
 	@RequiresPermission(value = "android.permission.RECORD_AUDIO")
 	public void startRecording(String outputFile, int channelCount, int sampleRate, int bitrate) {
+		int SIX_CHANNEL_FORMAT = AudioFormat.CHANNEL_IN_LEFT | AudioFormat.CHANNEL_IN_RIGHT | AudioFormat.CHANNEL_IN_FRONT | AudioFormat.CHANNEL_IN_BACK | AudioFormat.CHANNEL_IN_LEFT_PROCESSED | AudioFormat.CHANNEL_IN_RIGHT_PROCESSED;
+		int SIX_AUDIO_SOURCE = 11;
+
 		this.sampleRate = sampleRate;
 //		this.framesPerVisInterval = (int)((VISUALIZATION_INTERVAL/1000f)/(1f/sampleRate));
 		this.channelCount = channelCount;
 		recordFile = new File(outputFile);
 		if (recordFile.exists() && recordFile.isFile()) {
-			int channel = channelCount == 1 ? AudioFormat.CHANNEL_IN_MONO : AudioFormat.CHANNEL_IN_STEREO;
+			int channel = channelCount == 1 ? AudioFormat.CHANNEL_IN_MONO : (channelCount == 6 ? SIX_CHANNEL_FORMAT : AudioFormat.CHANNEL_IN_STEREO);
 			try {
 				bufferSize = AudioRecord.getMinBufferSize(sampleRate,
 						channel,
@@ -101,7 +105,7 @@ public class WavRecorder implements RecorderContract.Recorder {
 							AudioFormat.ENCODING_PCM_16BIT);
 				}
 				recorder = new AudioRecord(
-						MediaRecorder.AudioSource.MIC,
+						channelCount == 6 ? SIX_AUDIO_SOURCE : MediaRecorder.AudioSource.MIC,
 						sampleRate,
 						channel,
 						AudioFormat.ENCODING_PCM_16BIT,

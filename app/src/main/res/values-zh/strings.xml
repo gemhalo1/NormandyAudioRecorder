@@ -274,9 +274,11 @@
     </string-array>
 
     <string-array name="channels">
+        <item>六声道</item>
         <item>双声道</item>
         <item>单声道</item>
     </string-array>
 
     <string name="app_widget_description">Start recording widget</string>
+    <string name="six_channel">六声道</string>
 </resources>

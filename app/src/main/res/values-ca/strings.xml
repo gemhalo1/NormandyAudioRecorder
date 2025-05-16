@@ -270,9 +270,11 @@
 	</string-array>
 
 	<string-array name="channels">
+		<item>Six</item>
 		<item>Estèreo</item>
 		<item>Mono</item>
 	</string-array>
 
 	<string name="app_widget_description">Widget per començar a gravar</string>
+	<string name="six_channel">Six</string>
 </resources>

@@ -135,6 +135,7 @@ public class SetupActivity extends Activity implements SetupContract.View, View.
 		channelsSetting = findViewById(R.id.setting_channels);
 		final String[] recChannels = getResources().getStringArray(R.array.channels);
 		final String[] recChannelsKeys = new String[] {
+				SettingsMapper.CHANNEL_COUNT_SIX,
 				SettingsMapper.CHANNEL_COUNT_STEREO,
 				SettingsMapper.CHANNEL_COUNT_MONO
 		};
@@ -316,9 +317,11 @@ public class SetupActivity extends Activity implements SetupContract.View, View.
 		}
 
 		if (format.equals(AppConstants.FORMAT_3GP)) {
+			channelsSetting.removeChip(new String[] {SettingsMapper.CHANNEL_COUNT_SIX});
 			channelsSetting.removeChip(new String[] {SettingsMapper.CHANNEL_COUNT_STEREO});
 			channelsSetting.setSelected(SettingsMapper.CHANNEL_COUNT_MONO);
 		} else {
+			channelsSetting.addChip(new String[] {SettingsMapper.CHANNEL_COUNT_SIX}, new String[] {getString(R.string.six_channel)});
 			channelsSetting.addChip(new String[] {SettingsMapper.CHANNEL_COUNT_STEREO}, new String[] {getString(R.string.stereo)});
 		}
 	}

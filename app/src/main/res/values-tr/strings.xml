@@ -278,9 +278,11 @@
 	</string-array>
 
 	<string-array name="channels">
+		<item>Six</item>
 		<item>Stereo</item>
 		<item>Mono</item>
 	</string-array>
 
 	<string name="app_widget_description">Kayıt widgetini başlat</string>
+	<string name="six_channel">Six</string>
 </resources>

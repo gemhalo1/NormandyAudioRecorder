@@ -174,5 +174,6 @@
     	<b>Audio Recorder 2023</b><br>
 		Version %s
 	]]></string>
+	<string name="six_channel">Six</string>
 	<!--<a href="http://#/">Application site</a>-->
 </resources>
